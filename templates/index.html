@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imobiliária</title>
+     <link rel="stylesheet" href="/static/styles/1.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="" alt="">
+                <h1>Bem-vindo à Imobiliária</h1>
+            </div>
+
+        </div>
+    
+    <ul id="header1">
+        <li id="list"><a id="list"  href="#">Página Principal</a></li>
+        <li id="list"><a id="list" href="#">Imóveis</a></li>
+        <li id="list"><a id="list" href="#">Entre em contato</a></li>
+    </ul>
+    </header>
+     <!-- Imagem de fundo -->
+     <div class="background-image"></div>
+    <section>
+
+    </section>
+    <section class="property-session">
+        <div class="search-box">
+            <input type="text" placeholder="Buscar por imóveis">
+            <button type="submit">Buscar</button>
+        </div>
+        <ul id="property">
+            {% for property in properties %}
+                <li id="property"> 
+                    <div id="property-info">
+                        <p>{{ property.title }}</p>
+                        <p>R$ {{ property.price }}</p>
+                    </div>
+                    <img id="image-container" class="" src="/static/images/img/{{ property.image }}" alt="Imagem da propriedade">
+                </li>
+            {% endfor %}
+        </ul>
+</section>
+<footer>
+    <div class="social-links">
+        <a href="" id="wts"></a>
+        <a href="" id="fcb"></a>
+        <a href="" id="insta"></a>
+    </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Propriedades</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="/static/styles/2.css">
+</head>
+<body>
+    <h1>Administrar Imóveis</h1>
+    <table>
+        <tr>
+            <th>Título</th>
+            <th>Descrição</th>
+            <th>Preço</th>
+            <th>Ações</th>
+        </tr>
+        {% for property in properties %}
+        <tr>
+            <td>{{ property.title }}</td>
+            <td>{{ property.description }}</td>
+            <td>{{ property.price }}</td>
+            <td>
+                <button class="edit-property" data-property-id="{{ property.id }}">Editar</button>
+                <button class="delete-property" data-property-id="{{ property.id }}">Excluir</button>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div id="property-form" style="display: block;">
+        <!-- Formulário para criar/editar propriedade -->
+        <form id="property-form-create" enctype="multipart/form-data">
+            <label for="title">Título:</label>
+            <input type="text" id="title" name="title" required>
+            
+            <label for="description">Descrição:</label>
+            <textarea id="description" name="description" required></textarea>
+            
+            <label for="price">Preço:</label>
+            <input type="number" id="price" name="price" step="0.01" required>
+
+            <label for="image">Imagem:</label>
+            <input type="file" id="image" name="image"accept="image/*">
+            
+            <input type="submit" value="Adicionar">
+        </form>
+     
+        
+        <form id="property-form-edit" style="display: none;">
+
+        </form>
+    
+        <form id="property-form-delete" style="display: none;">
+            <input type="hidden" id="property-id-delete" name="property_id">
+            <p>Tem certeza de que deseja excluir esta propriedade?</p>
+            <input type="submit" value="Excluir">
+        </form>
+    </div>
+    
+ 
+    
+    <script>
+// Lidar com a submissão do formulário de criação
+$("#property-form-create").submit(function(event) {
+    event.preventDefault(); // Evita o comportamento padrão de recarregar a página
+
+    // Obtenha os valores do formulário
+    var title = $("#title").val();
+    var description = $("#description").val();
+    var price = $("#price").val();
+    var image = $("#image")[0].files[0]; // Obtenha o arquivo de imagem
+
+    // Crie um objeto FormData para enviar o formulário, incluindo a imagem
+    var formData = new FormData();
+    formData.append('title', title);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('image', image);
+
+    // Faça uma solicitação POST para o servidor Flask para criar o Property
+    $.ajax({
+        url: '/admin/properties/create',
+        type: 'POST',
+        data: formData,
+        processData: false,  // Evite o processamento automático dos dados
+        contentType: false,  // Evite o ajuste automático do cabeçalho Content-Type
+        success: function(data) {
+            // Recarregue a página após a criação
+            window.location.reload();
+        }
+    });
+});
+
+// Botão "Excluir" para cada propriedade
+$(".delete-property").click(function() {
+    var propertyId = $(this).data("property-id");
+
+    // Mostrar o formulário de exclusão
+    $("#property-form-delete").show();
+
+    // Defina o valor do campo de entrada oculto com o ID da propriedade
+    $("#property-id-delete").val(propertyId);
+});
+
+// Lidar com a submissão do formulário de exclusão
+$("#property-form-delete").submit(function(event) {
+    event.preventDefault();
+
+    var propertyId = $("#property-id-delete").val();
+
+    // Enviar uma solicitação POST para excluir a propriedade
+    $.post('/admin/properties/delete/' + propertyId, function(data) {
+        // Recarregue a página após a exclusão
+        window.location.reload();
+    });
+});
+
+
+        </script>
+</body>
+</html>

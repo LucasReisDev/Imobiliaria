@@ -1,0 +1,189 @@
+/* Estilos para o body */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    overflow-y: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    background-color: rgb(197, 197, 224);
+}
+
+/* Estilos para o cabeçalho */
+h1 {
+
+    text-align: center;
+    color: #333;
+    margin-top: 20px;
+}
+
+/* Estilos para a lista de propriedades */
+ul#property {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li#property {
+    display: flexbox;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 10px;
+    width: 100px;
+    padding: 50px 30px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para os links */
+a#property {
+    color: rgb(197, 197, 224);
+    text-decoration: none;
+}
+
+a#property:hover {
+    text-decoration: underline;
+}
+
+footer{
+    position: fixed;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            height: 90px;
+            background-color: rgb(197, 197, 224); /* Cor de fundo azul */
+            padding: 10px; /* Espaçamento interno para o conteúdo do footer */
+            text-align: center;
+}
+
+
+
+#wts{
+            background-image: url('/static/images/unnamed.png');
+            display: inline-block; /* Exibir em linha */
+            background-color: white; /* Cor de fundo branca para o ícone do WhatsApp */
+            padding: 10px; /* Espaçamento interno para o ícone do WhatsApp */
+            border-radius: 50%; /* Deixa o ícone redondo */
+            margin-left: 900px; /* Espaçamento à direita do ícone do WhatsApp */
+            width: 20px; /* Defina a largura desejada para o ícone */
+            height: 20px; /* Defina a altura desejada para o ícone */
+            background-size: cover; /* Preencher o círculo com a imagem */
+            margin-left: 10px; /* Adicione margem entre os ícones */
+
+
+}
+#insta{
+    background-image: url('/static/images/instagram\ icon.png');
+    display: inline-block; /* Exibir em linha */
+    background-color: white; /* Cor de fundo branca para o ícone do WhatsApp */
+    padding: 10px; /* Espaçamento interno para o ícone do WhatsApp */
+    border-radius: 50%; /* Deixa o ícone redondo */
+    width: 20px; /* Defina a largura desejada para o ícone */
+    height: 20px; /* Defina a altura desejada para o ícone */
+    background-size: cover; /* Preencher o círculo com a imagem */
+    margin-left: 20px; /* Adicione margem entre os ícones */
+
+
+}
+#fcb{
+    background-image: url('/static/images/facebook-logo-blue-circle-large-transparent-png.png');
+    display: inline-block; /* Exibir em linha */
+    background-color: white; /* Cor de fundo branca para o ícone do WhatsApp */
+    padding: 10px; /* Espaçamento interno para o ícone do WhatsApp */
+    border-radius: 50%; /* Deixa o ícone redondo */
+    width: 20px; /* Defina a largura desejada para o ícone */
+    height: 20px; /* Defina a altura desejada para o ícone */
+    background-size: cover; /* Preencher o círculo com a imagem */
+    margin-left: 20px; /* Adicione margem entre os ícones */
+
+}
+
+
+
+ul#header1 {
+    list-style-type: none;
+    padding: 0;
+    background-color: rgb(197, 197, 224);
+    text-align: center;
+}
+
+ul li#list {
+    display: inline;
+    margin-right: 20px;
+}
+
+ul li a#list {
+    text-decoration: none;
+    color: #333;
+    font-size: 18px;
+}
+
+ul li a#list:hover {
+    color: #ff4500; /* Cor de destaque quando o mouse está sobre o link */
+}
+.background-image {
+    background-image: url('/static/images/pngtree-living-room-images-of-apartment-image_13076586.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: local;
+    width: 100%; /* Defina a largura para cobrir toda a largura da tela */
+    height: 700px; /* Ajuste a altura conforme necessário */
+    position: fixed; /* Defina a posição absoluta para sobrepor outros elementos */
+    top: 0; /* Alinhe a parte superior com o início da viewport */
+    left: 0; /* Alinhe à esquerda da viewport */
+    z-index: -1; /* Defina um z-index negativo para colocar a imagem de fundo atrás dos outros elementos */
+    /* Outros estilos de posicionamento e dimensionamento aqui */
+}
+
+/* Estilos para a seção de propriedades */
+.property-section {
+    padding-top: 100vh; /* Certifique-se de que a seção de propriedades comece após a imagem de fundo */
+}
+
+/* Estilos para o campo de busca */
+.search-box {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.search-box input[type="text"] {
+    width: 200px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+}
+
+.search-box button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 0 5px 5px 0;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.search-box button[type="submit"]:hover {
+    background-color: #ddd;
+}
+#image-container {
+    max-width: 150px;
+    max-height: 130px;
+    overflow: hidden;
+    display: inline-block;
+}
+
+#image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+#property-info {
+    margin: 5px; /* Adicione a margem desejada ao redor das informações */
+    text-align: center; /* Centralize as informações */
+}
+/* Estilos para ícones sociais */
